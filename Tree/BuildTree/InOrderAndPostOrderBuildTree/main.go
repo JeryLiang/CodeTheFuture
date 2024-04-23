@@ -36,13 +36,13 @@ var (
 	slice1 []int // 存中序遍历结果
 	slice2 []int // 存后序遍历结果
 )
-func traserver(root *TreeNode) {
+func traverser(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	traserver(root.Left)
+	traverser(root.Left)
 	slice1 = append(slice1, root.Val)
-	traserver(root.Right)
+	traverser(root.Right)
 	slice2 = append(slice2, root.Val)
 }
 
@@ -50,7 +50,7 @@ func main() {
 	inorder := []int{9,3,15,20,7}
 	postorder := []int{9,15,7,20,3}
 	root := InOrderAndPostOrderBuildTree(inorder, postorder)
-	traserver(root)
+	traverser(root)
 	fmt.Println(slice1)
 	fmt.Println(slice2)
 }
